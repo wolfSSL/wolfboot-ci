@@ -11,8 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 python3-pip python3-venv python3-full \
     gcc-arm-none-eabi \
     binutils-arm-none-eabi \
-    libstdc++-arm-none-eabi-dev \
-    libstdc++-arm-none-eabi-newlib \
+    libstdc++-arm-none-eabi \
     gdb-multiarch \
     libtpms-dev vde2 \
     libcapstone-dev \

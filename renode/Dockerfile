@@ -10,8 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc-arm-none-eabi \
     binutils-arm-none-eabi \
-    libstdc++-arm-none-eabi-dev \
-    libstdc++-arm-none-eabi-newlib \
+    libstdc++-arm-none-eabi \
     gcc-multilib \
     libc6-dev-i386 \
     libicu-dev \
