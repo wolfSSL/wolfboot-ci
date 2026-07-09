@@ -26,17 +26,17 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Log in to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
       - name: Build and push base
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: base
           push: true
@@ -55,17 +55,17 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Log in to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
       - name: Build and push arm
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: arm
           push: true
@@ -85,17 +85,17 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Log in to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
       - name: Build and push sim
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: sim
           push: true
@@ -114,17 +114,17 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Log in to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
       - name: Build and push m33mu
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: m33mu
           push: true
@@ -145,17 +145,17 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Log in to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
       - name: Build and push powerpc
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: powerpc
           push: true
@@ -175,17 +175,17 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Log in to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
       - name: Build and push riscv
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: riscv
           push: true
@@ -205,17 +205,17 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Log in to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
       - name: Build and push aarch64
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: aarch64
           push: true
@@ -235,17 +235,17 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Log in to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
       - name: Build and push x86
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: x86
           push: true
@@ -265,17 +265,17 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Log in to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
       - name: Build and push renode
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: renode
           push: true
