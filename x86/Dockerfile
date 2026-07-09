@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
     nasm \
     gcc-multilib \
+    clang llvm lld \
     qemu-system-x86 \
     swtpm \
     uuid-dev \

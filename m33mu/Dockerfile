@@ -11,18 +11,34 @@ ENV ARM_GCC_DIR=arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates curl wget xz-utils file \
     git build-essential pkg-config \
+    autoconf automake libtool \
     cmake ninja-build \
+    rustc cargo \
     python3 python3-pip python3-venv python3-full \
     gdb-multiarch \
     libtpms-dev vde2 \
     libcapstone-dev \
-    libwolfssl-dev \
     libvdeplug-dev \
     vde-switch \
     libdw-dev libelf-dev \
     libncurses-dev \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
+
+# ---- wolfSSL: build from source (removed from Debian/Devuan testing) ----
+ENV WOLFSSL_VERSION=v5.9.2-stable
+
+RUN set -eux; \
+    wget -q "https://github.com/wolfSSL/wolfssl/archive/refs/tags/${WOLFSSL_VERSION}.tar.gz" -O /tmp/wolfssl.tar.gz; \
+    tar -C /tmp -xf /tmp/wolfssl.tar.gz; \
+    cd /tmp/wolfssl-*; \
+    ./autogen.sh; \
+    ./configure --enable-distro; \
+    make -j"$(nproc)"; \
+    make install; \
+    install -m 0644 wolfssl/options.h /usr/local/include/wolfssl/options.h; \
+    ldconfig; \
+    rm -rf /tmp/wolfssl*
 
 RUN set -eux; \
     cd /tmp; \

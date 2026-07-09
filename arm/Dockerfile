@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libc6-dev-arm64-cross \
     gnu-efi \
     clang llvm lld \
+    qemu-system-arm \
     check \
     cppcheck \
     gdb-multiarch \

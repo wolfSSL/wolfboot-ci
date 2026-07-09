@@ -4,6 +4,12 @@ FROM ghcr.io/wolfssl/wolfboot-ci-base:${BASE_TAG}
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    clang llvm lld \
+    qemu-system-arm \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
 # ARM GNU Toolchain for aarch64-none-elf (bare-metal)
 ARG ARM_GCC_VERSION=14.3.rel1
 ARG ARM_GCC_TARBALL=arm-gnu-toolchain-14.3.rel1-x86_64-aarch64-none-elf.tar.xz

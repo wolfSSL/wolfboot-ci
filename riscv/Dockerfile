@@ -4,6 +4,12 @@ FROM ghcr.io/wolfssl/wolfboot-ci-base:${BASE_TAG}
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    clang llvm lld \
+    qemu-system-riscv \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
 # xPack RISC-V GCC
 ARG RISCV_GCC_VERSION=15.2.0-1
 ARG RISCV_GCC_SHA256=aaaa8060c914851a3e5ee1ba82cc3d6f80972f90638a05c6e823a37557a33758
